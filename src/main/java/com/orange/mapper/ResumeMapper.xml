@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.orange.dao.ResumeDao">
+    <insert id="addResume" parameterType="Resume">
+        INSERT INTO T_RESUME VALUES(RECRUIT_SEQ.nextval,#{resume_name},#{resume_gender},#{resume_birth},#{resume_nation},#{resume_politics_status},#{resume_stature},#{resume_diploma},#{resume_native_place},#{resume_major},#{resume_schoolTag},#{resume_language_skill},#{resume_computer_rank},#{resume_work_experience},#{resume_email},#{resume_phone},#{resume_self_appraisal},#{user_id})
+    </insert>
+    <delete id="deleteResume" parameterType="Resume">
+        DELETE FROM T_RESUME WHERE RESUME_ID=#{resume_id}
+    </delete>
+    <update id="updateResume" parameterType="Resume">
+        UPDATE T_RESUME SET RESUME_NAME=#{resume_name},RESUME_GENDER=#{resume_gender},
+        RESUME_BIRTH=#{resume_birth},RESUME_NATION=#{resume_nation},RESUME_POLITICS_STATUS=#{resume_politics_status},
+        RESUME_STATURE=#{resume_stature},RESUME_DIPLOMA=#{resume_diploma},RESUME_NATIVE_PLACE=#{resume_native_place},
+        RESUME_MAJOR=#{resume_major},RESUME_SCHOOLTAG=#{resume_schoolTag},RESUME_LANGUAGE_SKILL=#{resume_language_skill},
+        RESUME_COMPUTER_RANK=#{resume_computer_rank},RESUME_WORK_EXPERIENCE=#{resume_work_experience},RESUME_EMAIL=#{resume_email},
+        RESUME_PHONE=#{resume_phone},RESUME_SELF_APPRAISAL=#{resume_self_appraisal},USER_ID=#{user_id} WHERE RESUME_ID=#{resume_id}
+    </update>
+
+    <select id="getResumeById" parameterType="integer" resultType="com.orange.model.Resume">
+        SELECT * FROM T_RESUME WHERE RESUME_ID=#{0}
+    </select>
+    <select id="getResumeByUserId" resultType="com.orange.model.Resume" parameterType="integer">
+        SELECT * FROM T_RESUME WHERE USER_ID=#{0}
+    </select>
+</mapper>

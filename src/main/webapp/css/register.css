@@ -1,0 +1,29 @@
+body{
+    background-image: url("../image/register.jpg");
+    background-size: 100% 100%;
+}
+fieldset{
+    position: relative;
+    top: 100px;
+    left: 100px;
+    width: 250px;
+    height: 300px;
+    opacity: 0.6;
+    background-color: white;
+}
+a{
+    text-decoration: none;
+    position: relative;
+    top: 40px;
+    left: 50px;
+    color: blue;
+    font-weight: 900;
+}
+a:hover{
+    background-color: green;
+}
+h4{
+    position: relative;
+    margin-top: 80px;
+    margin-left: 900px;
+}
