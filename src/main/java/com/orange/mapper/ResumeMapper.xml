@@ -24,4 +24,7 @@
     <select id="getResumeByUserId" resultType="com.orange.model.Resume" parameterType="integer">
         SELECT * FROM T_RESUME WHERE USER_ID=#{0}
     </select>
+    <select id="getAllResume" resultType="com.orange.model.Resume">
+        SELECT * FROM T_RESUME
+    </select>
 </mapper>

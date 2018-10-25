@@ -62,4 +62,12 @@ public class ApplyServiceImpl implements ApplyService{
         }
         return applyDao.getApplyByUserId(user_id);
     }
+
+    @Override
+    public Apply getApplyByRepeat(Apply apply) {
+        if(apply==null){
+            return null;
+        }
+        return applyDao.getApplyByRepeat(apply);
+    }
 }

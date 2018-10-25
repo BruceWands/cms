@@ -14,4 +14,5 @@ public interface ResumeDao {
     void updateResume(Resume resume);
     Resume getResumeById(Integer id);
     List<Resume> getResumeByUserId(Integer uid);
+    List<Resume> getAllResume();
 }

@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
@@ -19,7 +20,7 @@ public class ResumeController {
     @Resource
     private ResumeService resumeService;
 
-    //查看个人简历
+    //查看个人简历,并跳转到简历中心页面
     @RequestMapping("/showResume.do")
     public String showResume(HttpSession session, Model model) throws Exception{
         User user = (User) session.getAttribute("user");
@@ -81,7 +82,31 @@ public class ResumeController {
         }
         return "redirect:showResume.do";
     }
-    /*//职位申请前选择简历
-    @RequestMapping("choiceResume.do")
-    public String */
+    //跳转到选择简历页面
+    @RequestMapping("/choiceResumeView.do")
+    public String choiceResumeView(Integer recruit_id,Integer user_id,Model model) throws Exception{
+        List<Resume> resumeList = resumeService.getResumeByUserId(user_id);
+        if(resumeList==null||resumeList.isEmpty()){
+            model.addAttribute("message","暂无简历");
+            return "homePage";
+        }
+        model.addAttribute("recruit_id",recruit_id);
+        model.addAttribute("user_id",user_id);
+        model.addAttribute("resumeList",resumeList);
+        return "choiceResume";
+    }
+    //用户根据简历id查看简历
+    @RequestMapping("/queryResumeById.do")
+    public String queryResumeById(Integer resume_id,Model model) throws Exception{
+        Resume resume = resumeService.getResumeById(resume_id);
+        model.addAttribute("resume",resume);
+        return "resume/userQueryResume";
+    }
+    //管理员根据简历id查看简历
+    @RequestMapping("/adQueryResumeById.do")
+    public String adQueryResumeById(Integer resume_id,Model model) throws Exception{
+        Resume resume = resumeService.getResumeById(resume_id);
+        model.addAttribute("resume",resume);
+        return "resume/adQueryResume";
+    }
 }

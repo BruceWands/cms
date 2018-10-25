@@ -13,4 +13,5 @@ public interface ResumeService {
     boolean updateResume(Resume resume);
     Resume getResumeById(Integer id);
     List<Resume> getResumeByUserId(Integer uid);
+    List<Resume> getAllResume();
 }

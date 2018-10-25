@@ -19,16 +19,16 @@
 </head>
 <body>
 <form action="updateResume.do" method="post">
-    <table cellspacing="0px" cellpadding="10px" style="text-align: center">
+    <table cellspacing="10px" cellpadding="10px">
         <tr>
             <td>
                 姓名*<input type="text" name="resume_name" value="${sessionScope.resume.resume_name}" required>
             </td>
             <td>
                 性别*
-                <select>
-                    <option name="resume_gender" value="男">男</option>
-                    <option name="resume_gender" value="女">女</option>
+                <select name="resume_gender">
+                    <option>男</option>
+                    <option>女</option>
                 </select>
             </td>
         </tr>
@@ -57,16 +57,19 @@
             <td>计算机等级<input type="text" name="resume_computer_rank" value="${sessionScope.resume.resume_computer_rank}"></td>
         </tr>
         <tr>
-        <textarea name="resume_work_experience" value="${sessionScope.resume.resume_work_experience}" cols="30" rows="10">
-            工作经历：
-        </textarea>
+            工作经历
+            <textarea name="resume_work_experience" cols="30" rows="10">
+                ${sessionScope.resume.resume_work_experience}
+            </textarea>
         </tr>
         <tr>
-        <textarea name="resume_self_appraisal" value="${sessionScope.resume.resume_self_appraisal}" cols="30" rows="10">
-        自我评价：
-        </textarea>
+            自我评价
+            <textarea name="resume_self_appraisal" cols="30" rows="10">
+                ${sessionScope.resume.resume_self_appraisal}
+            </textarea>
         </tr>
     </table>
+    <input type="hidden" name="resume_id" value="${sessionScope.resume.resume_id}">
     <input type="hidden" name="user_id" value="${sessionScope.user.user_id}">
     <input type="submit" value="确定" onclick="updResume()">
     <a href="showResume.do">返回</a>

@@ -2,10 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.orange.dao.ApplyDao">
     <insert id="addApply" parameterType="Apply">
-        INSERT INTO T_APPLY VALUES(APPLY_SEQ.nextval,#{recruit_id},#{resume_id},#{state})
+        INSERT INTO T_APPLY VALUES(APPLY_SEQ.nextval,#{recruit_id},#{resume_id},#{state},#{user_id})
     </insert>
     <update id="updateApply" parameterType="Apply">
-        UPDATE T_APPLY SET RECRUIT_ID=#{recruit_id},RESUME_ID=#{resume_id},STATE=#{state} where APPLY_ID=#{apply_id}
+        UPDATE T_APPLY SET RECRUIT_ID=#{recruit_id},RESUME_ID=#{resume_id},STATE=#{state},USER_ID=#{user_id} where APPLY_ID=#{apply_id}
     </update>
     <delete id="deleteApply" parameterType="Apply">
         DELETE FROM T_APPLY WHERE APPLY_ID=#{apply_id}
@@ -18,5 +18,8 @@
     </select>
     <select id="getApplyByUserId" resultType="com.orange.model.Apply">
         SELECT * FROM T_APPLY WHERE USER_ID=#{user_id}
+    </select>
+    <select id="getApplyByRepeat" parameterType="Apply" resultType="com.orange.model.Apply">
+        SELECT * FROM T_APPLY WHERE RECRUIT_ID=#{recruit_id} and RESUME_ID=#{resume_id}
     </select>
 </mapper>

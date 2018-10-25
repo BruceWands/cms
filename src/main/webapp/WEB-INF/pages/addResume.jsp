@@ -12,16 +12,16 @@
 </head>
 <body>
 <form action="addResume.do" method="post">
-<table cellspacing="0px" cellpadding="10px" style="text-align: center">
+<table cellspacing="10px" cellpadding="10px">
     <tr>
         <td>
             姓名*<input type="text" name="resume_name" required>
         </td>
         <td>
             性别*
-            <select>
-                <option name="resume_gender" value="男">男</option>
-                <option name="resume_gender" value="女">女</option>
+            <select name="resume_gender">
+                <option>男</option>
+                <option>女</option>
             </select>
         </td>
     </tr>

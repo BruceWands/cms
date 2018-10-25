@@ -22,7 +22,6 @@
     <form action="user/login.do" method="post">
         <br/>
         <input type="text" name="user_name" placeholder="请输入用户名" required>
-        <span id="sp1"></span>
         <br/><br/>
         <input type="password" name="user_pass" placeholder="请输入密码" required>
         <br/><br/>

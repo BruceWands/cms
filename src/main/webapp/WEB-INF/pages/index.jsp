@@ -21,7 +21,8 @@
 <fieldset>
     <legend style="font-size: 200%;color: red;font-weight: 900">欢迎</legend>
     <a href="register.do">注册</a>
-    <a href="login.do">登录</a>
+    <a href="login.do">游客登录</a>
+    <a href="eLoginView.do">员工登录</a>
 </fieldset>
 </body>
 </html>

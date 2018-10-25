@@ -12,9 +12,20 @@
     <title>我的申请</title>
 </head>
 <body>
-<c:forEach items="${requestScope.applyList}" var="apply">
-    ${apply.apply_id}申请编号<br/>
-</c:forEach>
+<table>
+    <tr>
+        <td>申请编号</td>
+        <td>招聘编号</td>
+        <td>简历编号</td>
+    </tr>
+    <c:forEach items="${requestScope.applyList}" var="apply">
+        <tr>
+            <td>${apply.apply_id}</td>
+            <td>${apply.recruit_id}</td>
+            <td>${apply.resume_id}</td>
+        </tr>
+    </c:forEach>
+</table>
 <h4 style="color: red">
     ${requestScope.message}
 </h4>

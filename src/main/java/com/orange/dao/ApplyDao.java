@@ -14,4 +14,5 @@ public interface ApplyDao {
     Apply getApplyById(Apply apply);
     List<Apply> getAllApply();
     List<Apply> getApplyByUserId(Integer user_id);
+    Apply getApplyByRepeat(Apply apply);
 }

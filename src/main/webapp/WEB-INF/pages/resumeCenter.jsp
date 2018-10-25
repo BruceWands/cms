@@ -31,12 +31,17 @@
             </td>
             <td>
                 <a href="updateResumeView.do?resume_id=${resume.resume_id}">修改</a>
-            </td><td>
+            </td>
+            <td>
                 <a href="deleteResume.do?resume_id=${resume.resume_id}" onclick="delResume()">删除</a>
+            </td>
+            <td>
+                <a href="queryResumeById.do?resume_id=${resume.resume_id}">查看详情</a>
             </td>
         </tr>
     </c:forEach>
 </table>
+<a href="user/homeView.do">返回</a>
 <h3 style="color: red">
     ${requestScope.message}
 </h3>

@@ -16,6 +16,23 @@
     <base href="<%=basePath%>"/>
     <title>主页</title>
     <link href="../../css/homePage.css" type="text/css" rel="stylesheet"/>
+    <script src="../../resources/js/jquery-3.2.1.js"></script>
+    <script>
+        $(function () {
+            $("#btn").click(function () {
+                $.ajax({
+                    type:"get",
+                    url:"choiceResume.do",
+                    success:function (obj) {
+                        if(obj=="123"){
+                        }else if(obj=="暂无简历"){
+                            alert(obj);
+                        }
+                    }
+                })
+            })
+        })
+    </script>
 </head>
 <body>
 <%--<div style="background-color: coral">
@@ -47,10 +64,10 @@
                 联系我们：${recruit.recruit_contact}
             </td>
             <td>
-                <form action="addApply.do" method="post">
+                <form action="choiceResumeView.do" method="post">
                     <input type="hidden" name="recruit_id" value="${recruit.recruit_id}">
                     <input type="hidden" name="user_id" value="${sessionScope.user.user_id}">
-                    <input style="background-color: coral" type="submit" value="立即申请">
+                    <input style="background-color: coral;cursor: pointer" id="btn" type="submit" value="立即申请">
                 </form>
             </td>
         </tr>
@@ -58,7 +75,7 @@
 </table>
 <form action="recruit/showRecruit.do" method="post">
     <c:forEach begin="1" end="${sessionScope.maxPage}" var="i">
-        <input type="submit" name="currentPage" value="${i}">
+        <input style="cursor: pointer" type="submit" name="currentPage" value="${i}">
     </c:forEach>
 </form>
 <h4 style="color: red">

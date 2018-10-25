@@ -27,14 +27,9 @@ public class UserController {
     private RecruitService recruitService;
 
     //返回用户主页
-    @RequestMapping(value = "/userView.do")
-    public String userView() throws Exception{
-        return "userPage";
-    }
-    //返回管理员主页
-    @RequestMapping(value = "/administratorView.do")
-    public String administratorView() throws Exception{
-        return "administrator";
+    @RequestMapping(value = "/homeView.do")
+    public String homeView() throws Exception{
+        return "homePage";
     }
     //登录
     @RequestMapping(value = "/login.do")

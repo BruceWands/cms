@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.orange.dao.EmployeeDao">
+    <insert id="addEmployee" parameterType="Employee">
+        INSERT INTO T_EMP VALUES(EMP_SEQ.nextval,#{emp_name},#{emp_pass},#{emp_gender},#{emp_birth},#{emp_nation},#{emp_politics_status},#{emp_diploma},#{emp_native_place},#{emp_email},#{emp_phone},#{emp_major},#{dept_id},#{post_id},#{salary_id},1)
+    </insert>
+    <update id="updateEmployee" parameterType="Employee">
+        UPDATE T_EMP SET emp_pass=#{emp_pass},emp_birth=#{emp_birth},emp_diploma=#{emp_diploma},
+        emp_email=#{emp_email},emp_phone=#{emp_phone},dept_id=#{dept_id},post_id=#{post_id},emp_state=#{emp_state} where emp_id=#{emp_id}
+    </update>
+    <delete id="deleteEmployee" parameterType="Employee">
+        DELETE FROM T_EMP WHERE EMP_ID=#{emp_id}
+    </delete>
+    <select id="getEmployeeById" resultType="com.orange.model.Employee" parameterType="Employee">
+        SELECT * FROM T_EMP WHERE EMP_ID=#{emp_id}
+    </select>
+    <select id="getEmployeeByDeptId" resultType="com.orange.model.Employee">
+        SELECT * FROM T_EMP WHERE DEPT_ID=#{dept_id}
+    </select>
+    <select id="getEmployeeByPostId" resultType="com.orange.model.Employee">
+        SELECT * FROM T_EMP WHERE POST_ID=#{post_id}
+    </select>
+    <select id="getEmpliyeeByIdAndPass" parameterType="Employee" resultType="com.orange.model.Employee">
+        SELECT * FROM T_EMP WHERE EMP_ID=#{emp_id} and emp_pass=#{emp_pass}
+    </select>
+</mapper>

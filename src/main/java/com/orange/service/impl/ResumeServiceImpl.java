@@ -57,4 +57,9 @@ public class ResumeServiceImpl implements ResumeService{
         }
         return resumeDao.getResumeByUserId(uid);
     }
+
+    @Override
+    public List<Resume> getAllResume() {
+        return resumeDao.getAllResume();
+    }
 }

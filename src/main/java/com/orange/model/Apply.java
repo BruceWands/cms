@@ -9,7 +9,7 @@ public class Apply implements Serializable{
     private Integer apply_id;
     private Integer recruit_id;//招聘信息id
     private Integer resume_id;//简历id
-    private Integer state;//申请状态，1代表已申请，2代表企业已查看
+    private Integer state;//申请状态，1代表已申请。2代表企业选择忽略你的申请。
     private Integer user_id;
 
     public Apply() {
