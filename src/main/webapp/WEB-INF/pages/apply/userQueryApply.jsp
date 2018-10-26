@@ -26,6 +26,7 @@
         </tr>
     </c:forEach>
 </table>
+<a href="user/homeView.do">返回</a>
 <h4 style="color: red">
     ${requestScope.message}
 </h4>

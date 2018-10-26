@@ -22,4 +22,7 @@
     <select id="getApplyByRepeat" parameterType="Apply" resultType="com.orange.model.Apply">
         SELECT * FROM T_APPLY WHERE RECRUIT_ID=#{recruit_id} and RESUME_ID=#{resume_id}
     </select>
+    <select id="getApplyByWant" resultType="com.orange.model.Apply">
+        SELECT * FROM T_APPLY WHERE STATE=1
+    </select>
 </mapper>

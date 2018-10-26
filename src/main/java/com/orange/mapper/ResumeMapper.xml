@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.orange.dao.ResumeDao">
     <insert id="addResume" parameterType="Resume">
-        INSERT INTO T_RESUME VALUES(RECRUIT_SEQ.nextval,#{resume_name},#{resume_gender},#{resume_birth},#{resume_nation},#{resume_politics_status},#{resume_stature},#{resume_diploma},#{resume_native_place},#{resume_major},#{resume_schoolTag},#{resume_language_skill},#{resume_computer_rank},#{resume_work_experience},#{resume_email},#{resume_phone},#{resume_self_appraisal},#{user_id})
+        INSERT INTO T_RESUME VALUES(RESUME_SEQ.nextval,#{resume_name},#{resume_gender},#{resume_birth},#{resume_nation},#{resume_politics_status},#{resume_stature},#{resume_diploma},#{resume_native_place},#{resume_major},#{resume_schoolTag},#{resume_language_skill},#{resume_computer_rank},#{resume_work_experience},#{resume_email},#{resume_phone},#{resume_self_appraisal},#{user_id})
     </insert>
     <delete id="deleteResume" parameterType="Resume">
         DELETE FROM T_RESUME WHERE RESUME_ID=#{resume_id}

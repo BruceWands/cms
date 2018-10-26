@@ -104,9 +104,10 @@ public class ResumeController {
     }
     //管理员根据简历id查看简历
     @RequestMapping("/adQueryResumeById.do")
-    public String adQueryResumeById(Integer resume_id,Model model) throws Exception{
+    public String adQueryResumeById(Integer resume_id,Integer recruit_id,Model model) throws Exception{
         Resume resume = resumeService.getResumeById(resume_id);
         model.addAttribute("resume",resume);
+        model.addAttribute("recruit_id",recruit_id);
         return "resume/adQueryResume";
     }
 }

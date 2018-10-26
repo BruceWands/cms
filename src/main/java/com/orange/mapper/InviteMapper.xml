@@ -2,10 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.orange.dao.InviteDao">
     <insert id="addInvite" parameterType="Invite">
-        INSERT INTO T_INVITE VALUES(INVITE_SEQ.nextval,#{invite_time},#{user_id})
+        INSERT INTO T_INVITE VALUES(INVITE_SEQ.nextval,#{invite_time},#{resume_id},#{recruit_id},#{invite_state})
     </insert>
     <update id="updateInvite" parameterType="Invite">
-        UPDATE T_INVITE SET INVITE_TIME=#{invite_time},USER_ID=#{user_id} where INVITE_ID=#{invite_id}
+        UPDATE T_INVITE SET INVITE_TIME=#{invite_time},resume_id=#{resume_id},recruit_id=#{recruit_id},invite_state=#{invite_state} where INVITE_ID=#{invite_id}
     </update>
     <delete id="deleteInvite" parameterType="Invite">
         DELETE FROM T_INVITE WHERE INVITE_ID=#{invite_id}
@@ -13,7 +13,13 @@
     <select id="getInviteById" parameterType="Invite" resultType="com.orange.model.Invite">
         SELECT * FROM T_INVITE WHERE INVITE_ID=#{invite_id}
     </select>
-    <select id="getInviteByUserId" resultType="com.orange.model.Invite">
-        SELECT * FROM T_INVITE WHERE USER_ID=#{user_id}
+    <select id="getInviteByResumeId" resultType="com.orange.model.Invite">
+        SELECT * FROM T_INVITE WHERE RESUME_ID=#{0}
+    </select>
+    <select id="getInviteOnlyAccept" resultType="com.orange.model.Invite">
+        SELECT * FROM T_INVITE WHERE INVITE_STATE=1
+    </select>
+    <select id="getAllInvite" resultType="com.orange.model.Invite">
+        SELECT * FROM T_INVITE
     </select>
 </mapper>

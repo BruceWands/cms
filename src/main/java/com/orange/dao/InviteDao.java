@@ -12,5 +12,7 @@ public interface InviteDao {
     void deleteInvite(Invite invite);
     void updateInvite(Invite invite);
     Invite getInviteById(Invite invite);
-    List<Invite> getInviteByUserId(Integer user_id);
+    Invite getInviteByResumeId(Integer resume_id);
+    List<Invite> getInviteOnlyAccept();
+    List<Invite> getAllInvite();
 }

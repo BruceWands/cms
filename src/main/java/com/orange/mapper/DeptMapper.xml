@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.orange.dao.DeptDao">
+    <insert id="addDept" parameterType="Dept">
+        INSERT INTO T_DEPT VALUES(DEPT_SEQ.nextval,#{dept_name},#{dept_create_time})
+    </insert>
+    <update id="updateDept" parameterType="Dept">
+        UPDATE T_DEPT SET DEPT_NAME=#{dept_name} where dept_id=#{dept_id}
+    </update>
+    <delete id="deleteDept" parameterType="Dept">
+        DELETE FROM T_DEPT WHERE DEPT_ID=#{dept_id}
+    </delete>
+    <select id="getDeptById" parameterType="Dept" resultType="com.orange.model.Dept">
+        SELECT * FROM T_DEPT WHERE DEPT_ID=#{dept_id}
+    </select>
+    <select id="getAllDept" resultType="com.orange.model.Dept">
+        SELECT * FROM T_DEPT
+    </select>
+    <select id="getDeptByName" parameterType="Dept" resultType="com.orange.model.Dept">
+        SELECT * FROM T_DEPT WHERE DEPT_NAME=#{dept_name}
+    </select>
+</mapper>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.orange.dao.PostDao">
+    <insert id="addPost" parameterType="Post">
+        INSERT INTO T_POST VALUES(POST_SEQ.nextval,#{post_name},#{dept_id})
+    </insert>
+    <update id="updatePost" parameterType="Post">
+        UPDATE T_POST SET POST_NAME=#{post_name} where post_id=#{post_id}
+    </update>
+    <delete id="deletePost" parameterType="Post">
+        DELETE FROM T_POST WHERE POST_ID=#{post_id}
+    </delete>
+    <select id="getPostById" parameterType="Post" resultType="com.orange.model.Post">
+        SELECT * FROM T_POST WHERE POST_ID=#{post_id}
+    </select>
+    <select id="getAllPost" resultType="com.orange.model.Post">
+        SELECT * FROM T_POST
+    </select>
+    <select id="getPostByName" parameterType="Post" resultType="com.orange.model.Post">
+        SELECT * FROM T_POST WHERE POST_NAME=#{post_name}
+    </select>
+</mapper>

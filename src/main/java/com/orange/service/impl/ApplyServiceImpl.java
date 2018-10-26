@@ -56,6 +56,11 @@ public class ApplyServiceImpl implements ApplyService{
     }
 
     @Override
+    public List<Apply> getApplyByWant() {
+        return applyDao.getApplyByWant();
+    }
+
+    @Override
     public List<Apply> getApplyByUserId(Integer user_id) {
         if(user_id==null){
             return null;

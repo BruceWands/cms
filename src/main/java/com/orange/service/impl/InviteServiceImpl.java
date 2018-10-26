@@ -51,10 +51,20 @@ public class InviteServiceImpl implements InviteService{
     }
 
     @Override
-    public List<Invite> getInviteByUserId(Integer user_id) {
-        if(user_id==null){
+    public Invite getInviteByResumeId(Integer resume_id) {
+        if(resume_id==null){
             return null;
         }
-        return inviteDao.getInviteByUserId(user_id);
+        return inviteDao.getInviteByResumeId(resume_id);
+    }
+
+    @Override
+    public List<Invite> getInviteOnlyAccept() {
+        return inviteDao.getInviteOnlyAccept();
+    }
+
+    @Override
+    public List<Invite> getAllInvite() {
+        return inviteDao.getAllInvite();
     }
 }

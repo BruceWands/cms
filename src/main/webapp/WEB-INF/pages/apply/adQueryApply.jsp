@@ -10,6 +10,13 @@
 <html>
 <head>
     <title>管理员查看简历</title>
+    <script>
+        function delApply() {
+            if(!confirm("确定删除吗？")){
+                window.event.returnValue = false;
+            }
+        }
+    </script>
 </head>
 <body>
 <table cellpadding="10px" cellspacing="10px">
@@ -32,10 +39,14 @@
                     <td>${recruit.recruit_company_post}</td>
                 </c:if>
             </c:forEach>
-            <td><a href="adQueryResumeById.do?resume_id=${apply.resume_id}">点击查看</a></td>
+            <td><a href="adQueryResumeById.do?resume_id=${apply.resume_id}&recruit_id=${apply.recruit_id}">点击查看</a></td>
+            <td><a href="updateApply.do?apply_id=${apply.apply_id}" onclick="delApply()">删除</a></td>
         </tr>
     </c:forEach>
 </table>
 <a href="administratorView.do">返回</a>
+<h4 style="color: red">
+    ${requestScope.message}
+</h4>
 </body>
 </html>

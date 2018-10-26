@@ -75,11 +75,15 @@
                 </div>
             </div>
         </div>
-        <input type="hidden" name="user_id" value="${requestScope.resume.user_id}">
+        <input type="hidden" name="resume_id" value="${requestScope.resume.resume_id}">
+        <input type="hidden" name="recruit_id" value="${requestScope.recruit_id}">
         <input type="submit" value="确定" onclick="conInvite()">
     </form>
 </fieldset>
 <a href="adQueryApply.do">返回</a>
+<h4 style="color: red">
+    ${requestScope.message}
+</h4>
 
 <script src="../../../static/layui/layui/layui.all.js"></script>
 <script>

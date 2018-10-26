@@ -16,7 +16,7 @@
     <base href="<%=basePath%>"/>
     <title>主页</title>
     <link href="../../css/homePage.css" type="text/css" rel="stylesheet"/>
-    <script src="../../resources/js/jquery-3.2.1.js"></script>
+    <%--<script src="../../resources/js/jquery-3.2.1.js"></script>
     <script>
         $(function () {
             $("#btn").click(function () {
@@ -32,12 +32,9 @@
                 })
             })
         })
-    </script>
+    </script>--%>
 </head>
 <body>
-<%--<div style="background-color: coral">
-    欢迎回来，${sessionScope.user.user_name}!
-</div>--%>
 <h2 style="font-family: 华文行楷">
     &nbsp;&nbsp;
     尊敬的${sessionScope.user.user_name}，你好！
@@ -46,12 +43,13 @@
     <br/>
 </h2>
 <a href="showResume.do">简历中心</a>
-<a href="good/queryAllGood.do?currentPage=1">谁看过我</a>
+<%--<a href="good/queryAllGood.do?currentPage=1">谁看过我</a>--%>
 <a href="showApplyView.do">我的申请</a>
-<a href="">面试邀请</a>
+<a href="userQueryInvite.do?user_id=${sessionScope.user.user_id}">查看面试邀请</a>
 <a href="index.do">退出</a>
+<br/>
 <h3>为您推荐</h3>
-<table cellspacing="0px" cellpadding="10px">
+<table cellspacing="10px" cellpadding="10px">
     <c:forEach items="${sessionScope.recruitList}" var="recruit">
         <tr>
             <td width="800px">
@@ -67,13 +65,13 @@
                 <form action="choiceResumeView.do" method="post">
                     <input type="hidden" name="recruit_id" value="${recruit.recruit_id}">
                     <input type="hidden" name="user_id" value="${sessionScope.user.user_id}">
-                    <input style="background-color: coral;cursor: pointer" id="btn" type="submit" value="立即申请">
+                    <input style="background-color: coral;cursor: pointer" type="submit" value="立即申请">
                 </form>
             </td>
         </tr>
     </c:forEach>
 </table>
-<form action="recruit/showRecruit.do" method="post">
+<form action="showRecruit.do" method="post">
     <c:forEach begin="1" end="${sessionScope.maxPage}" var="i">
         <input style="cursor: pointer" type="submit" name="currentPage" value="${i}">
     </c:forEach>

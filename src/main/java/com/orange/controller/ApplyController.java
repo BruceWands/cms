@@ -61,12 +61,22 @@ public class ApplyController {
     //管理员（hr）查看用户的申请
     @RequestMapping("/adQueryApply.do")
     public String adQueryApply(HttpSession session) throws Exception{
-        List<Apply> applyList = applyService.getAllApply();
+        List<Apply> applyList = applyService.getApplyByWant();
         List<Recruit> recruitList = recruitService.getAllRecruit();
         List<Resume> resumeList = resumeService.getAllResume();
         session.setAttribute("applyList",applyList);
         session.setAttribute("recruitList",recruitList);
         session.setAttribute("resumeList",resumeList);
+        return "apply/adQueryApply";
+    }
+    //管理员（hr）忽略用户的申请
+    @RequestMapping("/updateApply.do")
+    public String updateApply(Apply apply,HttpSession session) throws Exception{
+        Apply apply1 = applyService.getApplyById(apply);
+        apply1.setState(2);
+        applyService.updateApply(apply1);
+        List<Apply> applyList = applyService.getApplyByWant();
+        session.setAttribute("applyList",applyList);
         return "apply/adQueryApply";
     }
 }

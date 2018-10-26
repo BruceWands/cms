@@ -38,7 +38,7 @@ public class RecruitServiceImpl implements RecruitService{
         if(recruit == null){
             return false;
         }
-        recruitDao.deleteRecruit(recruit);
+        recruitDao.updateRecruit(recruit);
         return true;
     }
 
